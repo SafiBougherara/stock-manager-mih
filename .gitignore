@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+/dist
+/build
+client/dist
+client/build
+client/dist-ssr
+
+# Editor
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Cache
+.cache/
+
+# Local development
+.DS_Store
+.env.local
+
+# Vite specific
+*.local
+
+# Testing
+/coverage
+
+# Production build
+/build
+
+# IDE specific files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.idea_modules/
+
+# Next.js specific
+.next/
+out/
+
+# Vercel
+.vercel/
+
+# Vite
+.vite/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/

@@ -1,0 +1,537 @@
+/* Styles pour les en-têtes triables */
+.sortable {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  transition: all 0.2s ease;
+  padding-right: 20px; /* Espace pour la flèche */
+}
+
+.sortable:hover {
+  background-color: #f1f5f9;
+}
+
+.dark .sortable:hover {
+  background-color: #374151;
+}
+
+/* Flèche de base (toujours visible mais discrète) */
+.sortable::after {
+  content: '↕';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1em; /* Taille augmentée */
+  font-weight: bold; /* Gras pour une meilleure visibilité */
+  opacity: 0.4; /* Légèrement plus visible par défaut */
+  transition: all 0.2s ease;
+  line-height: 1;
+  text-shadow: 0 0 3px rgba(0,0,0,0.1); /* Ombre légère pour le contraste */
+}
+
+/* Flèche plus visible au survol */
+.sortable:hover::after {
+  opacity: 0.9;
+  color: #1a56db; /* Bleu plus foncé pour un meilleur contraste */
+  text-shadow: 0 0 5px rgba(26, 86, 219, 0.2);
+}
+
+.dark .sortable::after {
+  opacity: 0.5; /* Un peu plus visible en mode sombre */
+}
+
+.dark .sortable:hover::after {
+  color: #3b82f6; /* Bleu plus clair pour le mode sombre */
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Style pour les flèches de tri actives */
+.sort-asc::after,
+.sort-desc::after {
+  opacity: 1 !important;
+  font-weight: 900; /* Plus épais pour une meilleure visibilité */
+  font-size: 1.2em; /* Légèrement plus grand quand actif */
+  text-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.sort-asc::after {
+  content: '↑';
+  color: #1a56db; /* Couleur plus foncée pour un meilleur contraste */
+}
+
+.sort-desc::after {
+  content: '↓';
+  color: #1a56db;
+}
+
+.dark .sort-asc::after,
+.dark .sort-desc::after {
+  color: #3b82f6;
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+/* Cacher la flèche par défaut quand il y a déjà un tri actif */
+.sort-asc .sort-arrow,
+.sort-desc .sort-arrow {
+  display: none;
+}
+
+/* Styles spécifiques pour le tableau des produits */
+.product-table {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+}
+
+.product-table table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.product-table th {
+  background-color: #f9fafb;
+  color: #4b5563;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.dark .product-table th {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+
+.product-table td,
+.product-table th {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .product-table td,
+.dark .product-table th {
+  border-bottom-color: #4b5563;
+}
+
+.product-table tr:last-child td {
+  border-bottom: none;
+}
+
+.product-table tr {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.product-table tr:hover {
+  background-color: #f9fafb;
+}
+
+.dark .product-table tr:hover {
+  background-color: rgba(55, 65, 81, 0.5);
+}
+
+/* Styles pour les boutons d'action */
+.action-button {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  background-color: #f1f5f9;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.dark .action-button {
+  background-color: #374151;
+  color: #60a5fa;
+  border-color: #4b5563;
+}
+
+.action-button:hover {
+  background-color: #e0e7ef;
+}
+
+.dark .action-button:hover {
+  background-color: #4b5563;
+}
+
+.product-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+}
+
+.variant-row td {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .variant-row td {
+  background-color: rgba(55, 65, 81, 0.3);
+  border-bottom-color: #4b5563;
+}
+
+.product-separator td {
+  border-bottom: none;
+  padding: 0;
+  height: 18px;
+  background: transparent;
+}
+
+.product-separator {
+  border-top: 2px solid #e5e7eb;
+  background-color: rgba(243, 244, 246, 0.5);
+}
+
+.dark .product-separator {
+  border-top-color: #4b5563;
+  background-color: rgba(55, 65, 81, 0.5);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e5e7eb;
+  color: #6366f1;
+}
+
+.dark .badge {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  background: #f1f5f9;
+  color: #2563eb;
+}
+
+.dark .btn {
+  background: rgba(37, 99, 235, 0.1);
+  color: #60a5fa;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.dark .btn:hover {
+  opacity: 0.5;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+.btn-secondary {
+  background: #f1f5f9;
+  color: #2563eb;
+}
+.btn-secondary:hover {
+  background: #e0e7ef;
+}
+
+/* Styles pour les champs de formulaire */
+input[type="number"],
+input[type="text"] {
+  border: 1.5px solid #e5e7eb;
+  border-radius: 7px;
+  padding: 0.5em 0.7em;
+  font-size: 0.9em;
+  background: #fff;
+  color: #1a1a1a;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Styles pour les champs en mode sombre */
+.dark input[type="number"],
+.dark input[type="text"] {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+/* Styles pour les champs au focus */
+input[type="number"]:focus,
+input[type="text"]:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Styles pour les boutons de contrôle des nombres (flèches) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Style personnalisé pour les boutons + et - */
+.number-controls {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.number-controls button {
+  background: #f1f5f9;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  width: 20px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.number-controls button:first-child {
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+}
+
+.number-controls button:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+.dark .number-controls button {
+  background: #4b5563;
+  border-color: #6b7280;
+  color: #e5e7eb;
+}
+
+.dark .number-controls button:hover {
+  background: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .product-table thead th, .product-table td {
+    padding: 8px 6px;
+    font-size: 0.93em;
+  }
+  .product-image {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Empty cell */
+.empty-cell {
+  color: #b0b4bb;
+  font-style: italic;
+}
+
+/* Quick actions (ex: boutons visibles au hover) */
+.quick-actions {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+tr:hover .quick-actions {
+  opacity: 1;
+}
+
+/* ---- End Modern UI ---- */
+
+/* Styles pour le mode édition */
+.edit-mode {
+  background-color: #f0f9ff;
+}
+
+/* Animation de chargement */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.product-table img {
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+  display: block !important;
+  background: #fff !important;
+  border: 1px solid #ccc !important;
+}
+
+/* Styles pour les images de produit */
+.product-table img {
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+  display: block !important;
+  background: #fff !important;
+  border: 1px solid #ccc !important;
+}
+
+/* Styles pour les conteneurs flex */
+.flex-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Styles pour les contrôles d'édition */
+.edit-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.edit-input {
+  padding-right: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  width: 100px;
+}
+
+.number-controls-container {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.number-controls button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles pour les boutons d'action */
+.btn-nowrap {
+  white-space: nowrap;
+}
+
+/* Styles pour les cellules vides */
+.empty-image-placeholder {
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+}
+
+/* Styles pour les options de produit */
+.product-option {
+  font-size: 0.85em;
+  color: #888;
+}
+
+/* Styles pour les marges */
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.mb-18 {
+  margin-bottom: 18px;
+}
+
+.ml-8 {
+  margin-left: 8px;
+}
+
+/* Styles pour le panneau de stock faible */
+.low-stock-panel {
+  margin-bottom: 18px;
+}
+
+/* Styles pour les filtres de tableau */
+.table-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.table-filters input {
+  min-width: 120px;
+}
+
+.table-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.filter-input {
+  min-width: 120px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 7px;
+  padding: 0.5em 0.7em;
+  font-size: 0.9em;
+  background: #fff;
+  color: #1a1a1a;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.dark .filter-input {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+.filter-input:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.filter-input-number {
+  min-width: 100px !important;
+}
+
+.ml-12 {
+  margin-left: 12px;
+}
+
+.relative {
+  position: relative;
+}
